@@ -6,7 +6,7 @@ function App() {
   const [type, setType] = useState("");
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col max-w-screen-sm mx-auto">
       {type === "" && <Menu onSetType={setType} />}
       {type === "notes" && <Notes />}
     </div >
