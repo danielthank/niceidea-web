@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useCallback } from "react";
 import { NOTES } from "../consts";
 
 function Notes() {
@@ -23,19 +23,18 @@ function Notes() {
     else setNotesNumber(newNumber);
   }
 
-  const generate = () => {
+  const generate = useCallback(() => {
     const result = [];
     const notesArray = Array.from(notesSet);
     for (let i = 0; i < notesNumber; ++i) {
       result.push(notesArray[Math.floor(Math.random() * notesArray.length)]);
     }
-    console.log(result)
     setNotesGenerated(result);
-  }
+  }, [notesNumber, notesSet])
 
   useEffect(() => {
     generate();
-  }, [notesSet, notesNumber])
+  }, [notesSet, notesNumber, generate])
 
   return (
     <Fragment>
@@ -62,8 +61,9 @@ function Notes() {
           onChange={onNotesNumberChange}
         />
         <div className="flex flex-wrap mb-5">
-          {notesGenerated.map((note) => (
+          {notesGenerated.map((note, idx) => (
             <button
+              key={idx}
               className="flex w-9 h-9 items-center justify-center border border-gray-200"
             >
               {NOTES[note]}
