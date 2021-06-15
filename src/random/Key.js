@@ -4,7 +4,7 @@ import SubmitButton from "../component/SubmitButton";
 import { KEYS } from "../consts";
 import { pick } from "../utils";
 
-function Keys() {
+function Key() {
   const [keyGenerated, setKeyGenerated] = useState(pick(KEYS));
 
   const generate = () => {
@@ -14,7 +14,7 @@ function Keys() {
   return (
     <Fragment>
       <Content>
-        <p className="textkeys-xl h-full flex flex-col justify-center items-center">{keyGenerated}</p>
+        <p className="text-xl h-full flex flex-col justify-center items-center">{keyGenerated}</p>
       </Content>
       <div className="m-5">
         <SubmitButton onClick={generate}>再一次</SubmitButton>
@@ -23,4 +23,5 @@ function Keys() {
   )
 }
 
-export default Keys;
+export default Key
+;

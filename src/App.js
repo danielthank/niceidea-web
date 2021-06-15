@@ -2,8 +2,9 @@ import Menu from "./Menu";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Notes from "./random/Notes";
 import Chords from "./random/Chords";
-import Keys from "./random/Keys";
+import Key from "./random/Key";
 import Modes from "./random/Modes";
+import Meter from "./random/Meter";
 
 function App() {
   return (
@@ -20,10 +21,13 @@ function App() {
             <Chords />
           </Route>
           <Route path="/keys" exact>
-            <Keys />
+            <Key />
           </Route>
           <Route path="/modes" exact>
             <Modes />
+          </Route>
+          <Route path="/meter" exact>
+            <Meter />
           </Route>
         </Switch>
       </Router>
