@@ -7,7 +7,7 @@ import Content from "../component/Content";
 import { useToggle } from "../hook";
 
 function Chords() {
-  const [chordsSet, toggleChordsSet] = useToggle([...Array(CHORDS.length).keys()]);
+  const [chordsSet, toggleChordsSet] = useToggle([5, 6, 8]); // maj7, m7, 7sus
   const [chordsNumber, setChordsNumber] = useState(8);
   const [chordsGenerated, setChordsGenerated] = useState([]);
 
