@@ -5,6 +5,7 @@ import { NOTES } from "../consts";
 import SubmitButton from "../component/SubmitButton";
 import Content from "../component/Content";
 import { useToggle } from "../hook";
+import { pick } from "../utils";
 
 function Notes() {
   const [notesSet, toggleNotesSet] = useToggle([...Array(NOTES.length).keys()]);
@@ -15,7 +16,9 @@ function Notes() {
     const result = [];
     const notesArray = Array.from(notesSet);
     for (let i = 0; i < notesNumber; ++i) {
-      result.push(notesArray[Math.floor(Math.random() * notesArray.length)]);
+      const noteIdx = pick(notesArray);
+      if (noteIdx === null) result.push("");
+      else result.push(NOTES[noteIdx]);
     }
     setNotesGenerated(result);
   }, [notesNumber, notesSet])
@@ -56,7 +59,7 @@ function Notes() {
               key={idx}
               className="flex mx-1 my-2 w-9 h-9 items-center justify-center border border-gray-200"
             >
-              {NOTES[note]}
+              {note}
             </button>
           ))}
         </div>

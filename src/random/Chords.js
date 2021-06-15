@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useState, useCallback } from "react";
 import ToggleButton from "../component/ToggleButton";
 import NumberInput from "../component/NumberInput";
-import { CHORDS } from "../consts";
+import { CHORDS, NOTES } from "../consts";
 import SubmitButton from "../component/SubmitButton";
 import Content from "../component/Content";
 import { useToggle } from "../hook";
+import { pick } from "../utils";
 
 function Chords() {
   const [chordsSet, toggleChordsSet] = useToggle([5, 6, 8]); // maj7, m7, 7sus
@@ -15,7 +16,9 @@ function Chords() {
     const result = [];
     const chordsArray = Array.from(chordsSet);
     for (let i = 0; i < chordsNumber; ++i) {
-      result.push(chordsArray[Math.floor(Math.random() * chordsArray.length)]);
+      const chordIdx = pick(chordsArray);
+      if (chordIdx === null) result.push("");
+      else result.push(pick(NOTES) + CHORDS[chordIdx].name);
     }
     setChordsGenerated(result);
   }, [chordsNumber, chordsSet])
@@ -36,7 +39,7 @@ function Chords() {
                 selected={chordsSet.has(idx)}
                 onToggle={() => toggleChordsSet(idx)}
               >
-                {chord}
+                {chord.categoryName}
               </ToggleButton>
             )
           }
@@ -54,9 +57,9 @@ function Chords() {
           {chordsGenerated.map((chord, idx) => (
             <button
               key={idx}
-              className="flex mx-1 my-2 px-2 py-1 items-center justify-center border border-gray-200"
+              className="flex mx-1 my-2 px-2 h-9 items-center justify-center border border-gray-200"
             >
-              {CHORDS[chord]}
+              {chord}
             </button>
           ))}
         </div>
