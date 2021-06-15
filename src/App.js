@@ -6,6 +6,8 @@ import Key from "./random/Key";
 import Modes from "./random/Modes";
 import Meter from "./random/Meter";
 import Tempo from "./random/Tempo";
+import Title from "./random/Title";
+import Idea from "./random/Idea";
 
 function App() {
   return (
@@ -32,6 +34,12 @@ function App() {
           </Route>
           <Route path="/tempo" exact>
             <Tempo />
+          </Route>
+          <Route path="/title" exact>
+            <Title />
+          </Route>
+          <Route path="/idea" exact>
+            <Idea />
           </Route>
         </Switch>
       </Router>
