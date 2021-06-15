@@ -14,7 +14,7 @@ export const RANDOM_TYPE = [{
   id: "meter",
   displayName: "拍號",
 }, {
-  id: "temple",
+  id: "tempo",
   displayName: "速度",
 }, {
   id: "title",

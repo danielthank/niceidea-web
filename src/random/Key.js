@@ -23,5 +23,4 @@ function Key() {
   )
 }
 
-export default Key
-;
+export default Key;

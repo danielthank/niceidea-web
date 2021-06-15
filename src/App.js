@@ -5,6 +5,7 @@ import Chords from "./random/Chords";
 import Key from "./random/Key";
 import Modes from "./random/Modes";
 import Meter from "./random/Meter";
+import Tempo from "./random/Tempo";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/meter" exact>
             <Meter />
+          </Route>
+          <Route path="/tempo" exact>
+            <Tempo />
           </Route>
         </Switch>
       </Router>
