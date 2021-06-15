@@ -25,3 +25,5 @@ export const RANDOM_TYPE = [{
 }];
 
 export const NOTES = ["C", "Db", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
+
+export const CHORDS = ["major", "minor", "augmented", "dinimished", "sus2", "maj7", "m7", "7", "7sus", "m7(b5)", "dim7"]

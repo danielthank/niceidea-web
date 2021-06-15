@@ -1,6 +1,7 @@
 import Menu from "./Menu";
 import Notes from "./random/Notes";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Chords from "./random/Chords";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
           </Route>
           <Route path="/notes" exact>
             <Notes />
+          </Route>
+          <Route path="/chords" exact>
+            <Chords />
           </Route>
         </Switch>
       </Router>
