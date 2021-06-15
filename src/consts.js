@@ -78,3 +78,5 @@ export const KEYS = [
   "Gb 大調 / Eb 小調 （6 個降記號）",
   "Cb 大調 / Ab 小調 （7 個降記號）",
 ]
+
+export const MODES = ["Ionian", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aeolian", "Locrian"];

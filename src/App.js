@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Notes from "./random/Notes";
 import Chords from "./random/Chords";
 import Keys from "./random/Keys";
+import Modes from "./random/Modes";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/keys" exact>
             <Keys />
+          </Route>
+          <Route path="/modes" exact>
+            <Modes />
           </Route>
         </Switch>
       </Router>
